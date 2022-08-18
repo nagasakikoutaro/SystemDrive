@@ -20,3 +20,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/create','App\Http\Controllers\BodyTemperatureController@create');
+Route::post('/post','App\Http\Controllers\BodyTemperatureController@post');
+Route::get('/index','App\Http\Controllers\BodyTemperatureController@index');
