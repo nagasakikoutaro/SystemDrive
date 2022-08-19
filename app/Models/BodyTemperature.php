@@ -8,6 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class BodyTemperature extends Model
 {
     use HasFactory;
+    
+    
+    protected $table = 'bodytemperatures';
+    protected $guarded =['id','created_at', 'updated_at'];
 
-    protected $fillable =[];
+    public $timestamps = false;
 }
