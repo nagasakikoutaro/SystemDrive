@@ -10,8 +10,14 @@
     <h2>体温入力ページ</h2>
         <form action="/post" method="POST">
         @csrf
+        @auth
         <label>名前</label>
         <input type="text" name="name" value="{{ Auth::user()->name }}">
+        @endauth
+        @guest
+        <label>名前</label>
+        <input type="text" name="name" value="{{old('name')}}">
+        @endguest
         <label>日付</label>
         <input type="text" name="day" value="{{old('day')}}">
         <label>体温</label>
