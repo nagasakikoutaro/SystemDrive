@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Models\BodyTemperature;
 
 class BodyTemperatureController extends Controller
@@ -28,7 +30,13 @@ class BodyTemperatureController extends Controller
         return redirect('/index');
     }
 
-    public function index(){
-        return view('BodyTemperature.index');
+    public function index(Request $request){
+        
+         $name=Auth::user()->name;
+        $data = DB::table('bodytemperatures')
+        ->where('name', '=', $name)
+        ->get();
+        
+        return view('BodyTemperature.index',compact('data'));
     }
 }
