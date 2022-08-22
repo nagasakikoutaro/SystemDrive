@@ -22,4 +22,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/create','App\Http\Controllers\BodyTemperatureController@create');
 Route::post('/post','App\Http\Controllers\BodyTemperatureController@post');
+Route::get('/edit/{id}','App\Http\Controllers\BodyTemperatureController@edit');
+Route::post('/update/{id}','App\Http\Controllers\BodyTemperatureController@update');
+Route::get('/delete/{id}','App\Http\Controllers\BodyTemperatureController@delete');
 Route::get('/index','App\Http\Controllers\BodyTemperatureController@index');
